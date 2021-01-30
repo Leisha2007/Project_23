@@ -69,11 +69,9 @@ function keyPressed(){
 		Matter.Body.setStatic(packageBody,false);
 	}
 	if(keyCode==LEFT_ARROW){
-		helicopterSprite.x-=5;
-		packageSprite.x-=5;
+		Matter.Body.setPosition({x:packageBody.position.x-5,y:packageBody.position.y})
 	}
 	if(keyCode==RIGHT_ARROW){
-		helicopterSprite.x+=5;
-		packageSprite.x+=5;
+		Matter.Body.setPosition({x:packageBody.position.x-5,y:packageBody.position.y})
 	}
 }
