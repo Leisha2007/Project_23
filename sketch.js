@@ -70,8 +70,10 @@ function keyPressed(){
 	}
 	if(keyCode==LEFT_ARROW){
 		helicopterSprite.x-=5;
+		packageSprite.x-=5;
 	}
 	if(keyCode==RIGHT_ARROW){
 		helicopterSprite.x+=5;
+		packageSprite.x+=5;
 	}
 }
