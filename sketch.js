@@ -69,9 +69,9 @@ function keyPressed(){
 		Matter.Body.setStatic(packageBody,false);
 	}
 	if(keyCode==LEFT_ARROW){
-		Matter.Body.setPosition({x:packageBody.position.x-5,y:packageBody.position.y})
+		Matter.Body.setPosition(packageBody,{x:packageBody.position.x-5,y:packageBody.position.y})
 	}
 	if(keyCode==RIGHT_ARROW){
-		Matter.Body.setPosition({x:packageBody.position.x-5,y:packageBody.position.y})
+		Matter.Body.setPosition(packageBody,{x:packageBody.position.x-5,y:packageBody.position.y})
 	}
 }
