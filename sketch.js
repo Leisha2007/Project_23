@@ -60,6 +60,9 @@ function draw() {
   background(0);
   packageSprite.x= packageBody.position.x;
   packageSprite.y= packageBody.position.y;
+	if(packageBody.position.y<=200){
+	    helicopterSprite.x=packageBody.position.x;
+	    helicopterSprite.y=packageBody.position.y;
   keyPressed();
   drawSprites();
 }
@@ -72,6 +75,6 @@ function keyPressed(){
 		Matter.Body.setPosition(packageBody,{x:packageBody.position.x-5,y:packageBody.position.y})
 	}
 	if(keyCode==RIGHT_ARROW){
-		Matter.Body.setPosition(packageBody,{x:packageBody.position.x-5,y:packageBody.position.y})
+		Matter.Body.setPosition(packageBody,{x:packageBody.position.x+5,y:packageBody.position.y})
 	}
 }
