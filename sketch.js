@@ -25,7 +25,7 @@ function setup() {
 	groundSprite.shapeColor=color(255);
 
 	engine = Engine.create();
-	world = Engine.world;
+	world = engine.world;
 
  	rect1=createSprite(width/2,height-35,200,20);
  	rect1.shapeColor="red";
@@ -36,7 +36,7 @@ function setup() {
 	rect3=createSprite(500,620,20,100);
 	rect3.shapeColor="red";
 
-	packageBody = Bodies.circle(width/2,200,5,5);
+	packageBody = Bodies.circle(width/2,200,5);
 	World.add(world,packageBody);
 	Matter.Body.setStatic(packageBody,true);
 
