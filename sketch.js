@@ -29,12 +29,18 @@ function setup() {
 
  	rect1=createSprite(width/2,height-35,200,20);
  	rect1.shapeColor="red";
+	r1=Matter.Bodies.rectangle(width/2,height-35,200,20);
+	World.add(world,r1);
 	 
  	rect2=createSprite(300,620,20,100);
 	rect2.shapeColor="red";
+	r2=Matter.Bodies.rectangle(300,620,20,100);
+	World.add(world,r2);
 	 
 	rect3=createSprite(500,620,20,100);
 	rect3.shapeColor="red";
+	r3=Matter.Bodies.rectangle(500,620,20,100);
+	World.add(world,r3);
 
 	packageBody = Bodies.circle(width/2,200,5);
 	World.add(world,packageBody);
@@ -51,6 +57,12 @@ function draw() {
   background(0);
   packageSprite.x= packageBody.position.x;
   packageSprite.y= packageBody.position.y;
+  rect1.x= r1.position.x;
+  rect1.y= r1.position.y;
+  rect2.x= r2.position.x;
+  rect2.y= r2.position.y;
+  rect3.x= r3.position.x;
+  rect3.y= r3.position.y;
   if(packageBody.position.y<=200){
 	helicopterSprite.x=packageBody.position.x;
     helicopterSprite.y=packageBody.position.y;
