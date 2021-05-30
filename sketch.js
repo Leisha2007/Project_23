@@ -29,17 +29,17 @@ function setup() {
 
  	rect1=createSprite(width/2,height-35,200,20);
  	rect1.shapeColor="red";
-	r1=Matter.Bodies.rectangle(width/2,height-35,200,20);
+	r1=Matter.Bodies.rectangle(width/2,height-35,200,20,{isStatic:true});
 	World.add(world,r1);
 	 
  	rect2=createSprite(300,620,20,100);
 	rect2.shapeColor="red";
-	r2=Matter.Bodies.rectangle(300,620,20,100);
+	r2=Matter.Bodies.rectangle(300,625,20,100,{isStatic:true});
 	World.add(world,r2);
 	 
-	rect3=createSprite(500,620,20,100);
+	rect3=createSprite(500,625,20,100);
 	rect3.shapeColor="red";
-	r3=Matter.Bodies.rectangle(500,620,20,100);
+	r3=Matter.Bodies.rectangle(500,620,20,100,{isStatic:true);
 	World.add(world,r3);
 
 	packageBody = Bodies.circle(width/2,200,5);
