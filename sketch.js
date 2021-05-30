@@ -13,41 +13,42 @@ function preload(){
 function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
-	packageSprite=createSprite(width/2, 80, 10,10);
+
+	engine = Engine.create();
+	world = engine.world;
+
+	packageSprite=createSprite(width/2, 80, 20);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
 
-	helicopterSprite=createSprite(width/2, 200, 10,10);
+	packageBody = Bodies.circle(width/2,80,20);
+	World.add(world,packageBody);
+	Matter.Body.setStatic(packageBody,true);
+
+	helicopterSprite=createSprite(width/2, 80, 10,10);
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
 
 	groundSprite=createSprite(width/2, height-35, width,10);
 	groundSprite.shapeColor=color(255);
 
-	engine = Engine.create();
-	world = engine.world;
+	ground = Bodies.rectangle(width/2,height-35,width,10,{isStatic:true});
+	World.add(world,ground);
 
- 	rect1=createSprite(width/2,height-35,200,20);
+ 	rect1=createSprite(width/2,height-50,175,20);
  	rect1.shapeColor="red";
-	r1=Matter.Bodies.rectangle(width/2,height-35,200,20,{isStatic:true});
+	r1=Matter.Bodies.rectangle(width/2,height-50,175,20,{isStatic:true});
 	World.add(world,r1);
 	 
- 	rect2=createSprite(300,620,20,100);
+ 	rect2=createSprite(300,610,20,100);
 	rect2.shapeColor="red";
-	r2=Matter.Bodies.rectangle(300,625,20,100,{isStatic:true});
+	r2=Matter.Bodies.rectangle(300,610,20,100,{isStatic:true});
 	World.add(world,r2);
 	 
-	rect3=createSprite(500,625,20,100);
+	rect3=createSprite(500,610,20,100);
 	rect3.shapeColor="red";
-	r3=Matter.Bodies.rectangle(500,620,20,100,{isStatic:true);
+	r3=Matter.Bodies.rectangle(500,610,20,100,{isStatic:true});
 	World.add(world,r3);
-
-	packageBody = Bodies.circle(width/2,200,5);
-	World.add(world,packageBody);
-	Matter.Body.setStatic(packageBody,true);
-
-	ground = Bodies.rectangle(width/2,650,width,10,{isStatic:true});
-	World.add(world,ground);
 
 	Engine.run(engine);
 }
@@ -63,7 +64,7 @@ function draw() {
   rect2.y= r2.position.y;
   rect3.x= r3.position.x;
   rect3.y= r3.position.y;
-  if(packageBody.position.y<=200){
+  if(packageBody.position.y<=80){
 	helicopterSprite.x=packageBody.position.x;
     helicopterSprite.y=packageBody.position.y;
   }
@@ -76,11 +77,11 @@ function keyPressed(){
 		Matter.Body.setStatic(packageBody,false);
 		keyCode=0;
 	}
-	if(keyCode==LEFT_ARROW){
+	if(keyCode==LEFT_ARROW && packageBody.position.y<=80){
 		Matter.Body.setPosition(packageBody,{x:packageBody.position.x-5,y:packageBody.position.y})
 		keyCode=0;
 	}
-	if(keyCode==RIGHT_ARROW){
+	if(keyCode==RIGHT_ARROW && packageBody.position.y<=80){
 		Matter.Body.setPosition(packageBody,{x:packageBody.position.x+5,y:packageBody.position.y})
 		keyCode=0;
 	}
